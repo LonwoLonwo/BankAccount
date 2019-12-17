@@ -1,9 +1,8 @@
 public class PaymentAccount {
-
     private int moneyAmount;
 
-    public PaymentAccount(int moneyAmount){
-        this.moneyAmount = moneyAmount;
+    public PaymentAccount(int money){
+        moneyAmount = money;
     }
 
     public int getMoneyAmount() {
@@ -11,7 +10,12 @@ public class PaymentAccount {
     }
 
     public void putMoney(int money){
-        moneyAmount += money;
+        if(moneyAmount < money){
+            System.out.println("Недостаточно средств на счету для продолжения операции.");
+        }
+        else {
+            moneyAmount += money;
+        }
     }
 
     public void withdrawMoney(int money){

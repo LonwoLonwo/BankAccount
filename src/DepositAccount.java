@@ -7,9 +7,9 @@ public class DepositAccount extends PaymentAccount {
     private int moneyAmount;
     private Date lastPaymentDay;
 
-    public DepositAccount(int moneyAmount, String date) {
-        super(moneyAmount);
-        this.moneyAmount = moneyAmount;
+    public DepositAccount(int money, String date) {
+        super(money);
+        moneyAmount = money;
         lastPaymentDay = dateFormat(date);
     }
 
@@ -22,7 +22,10 @@ public class DepositAccount extends PaymentAccount {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, -1);
         Date minusMonth = calendar.getTime();
-        if(minusMonth.after(lastPaymentDay)) {
+        if(moneyAmount < money){
+            System.out.println("Недостаточно средств на счету для продолжения операции.");
+        }
+        else if(minusMonth.after(lastPaymentDay) && moneyAmount >= money) {
             moneyAmount -= money;
         }
         else{

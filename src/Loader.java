@@ -12,6 +12,7 @@ public class Loader {
 
         CardAccount cAccount = new CardAccount(15000);
         System.out.println(cAccount.getMoneyAmount());
+        cAccount.putMoney(3000);
         cAccount.withdrawMoney(1000);
         System.out.println(cAccount.getMoneyAmount());
 
