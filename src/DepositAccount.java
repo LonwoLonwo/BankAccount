@@ -13,6 +13,11 @@ public class DepositAccount extends PaymentAccount {
         lastPaymentDay = dateFormat(date);
     }
 
+    @Override
+    public void putMoney(int money) {
+        System.out.println("Укажите дату внесения средств.");
+    }
+
     public void putMoney(int money, String date){
         moneyAmount += money;
         lastPaymentDay = dateFormat(date);

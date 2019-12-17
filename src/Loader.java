@@ -2,6 +2,7 @@ public class Loader {
     public static void main(String[] args) {
         DepositAccount dAccount = new DepositAccount(4000, "01.10.2019");
         dAccount.putMoney(4000, "01.11.2019");
+        dAccount.putMoney(2000);
 
         dAccount.withdrawMoney(2000);
         System.out.println(dAccount.getMoneyAmount());
