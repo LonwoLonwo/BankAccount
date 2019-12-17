@@ -7,7 +7,7 @@ public class DepositAccount extends PaymentAccount {
     private int moneyAmount;
     private Date lastPaymentDay;
 
-    public DepositAccount(int money, String date) {
+    DepositAccount(int money, String date) {
         super(money);
         moneyAmount = money;
         lastPaymentDay = dateFormat(date);

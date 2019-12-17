@@ -1,7 +1,7 @@
 public class PaymentAccount {
     private int moneyAmount;
 
-    public PaymentAccount(int money){
+    PaymentAccount(int money){
         moneyAmount = money;
     }
 

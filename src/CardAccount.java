@@ -1,7 +1,7 @@
 public class CardAccount extends PaymentAccount{
     private int moneyAmount;
 
-    public CardAccount(int money) {
+    CardAccount(int money) {
         super(money);
         this.moneyAmount = money;
     }
