@@ -1,31 +1,24 @@
 public class CardAccount extends PaymentAccount{
-    private int moneyAmount;
 
-    CardAccount(int money) {
+    CardAccount(double money) {
         super(money);
-        this.moneyAmount = money;
     }
 
-    public int getMoneyAmount() {
+    public double getMoneyAmount() {
         return moneyAmount;
     }
-/*    @Override
-    public void putMoney(int money) {
-        super.putMoney(money);
-    }*/
-
     @Override
-    public void putMoney(int money) {
-        moneyAmount += money;
+    public void putMoney(double money) {
+        super.putMoney(money);
     }
 
     @Override
-    public void withdrawMoney(int money) {
+    public void withdrawMoney(double money) {
         if(moneyAmount < (money + moneyAmount*0.01)){
             System.out.println("Недостаточно средств на счету для продолжения операции.");
         }
         else {
-            moneyAmount = moneyAmount - money - (int) Math.round(moneyAmount * 0.01);
+            moneyAmount = moneyAmount - money - Math.round(moneyAmount * 0.01);
         }
     }
 }

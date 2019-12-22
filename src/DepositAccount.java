@@ -4,41 +4,36 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DepositAccount extends PaymentAccount {
-    private int moneyAmount;
     private Date lastPaymentDay;
 
-    DepositAccount(int money, String date) {
+    DepositAccount(double money, String date) {
         super(money);
-        moneyAmount = money;
         lastPaymentDay = dateFormat(date);
     }
 
     @Override
-    public void putMoney(int money) {
+    public void putMoney(double money) {
         System.out.println("Укажите дату внесения средств.");
     }
 
-    public void putMoney(int money, String date){
-        moneyAmount += money;
+    public void putMoney(double money, String date){
+        super.putMoney(money);
         lastPaymentDay = dateFormat(date);
     }
 
-    public void withdrawMoney(int money){
+    public void withdrawMoney(double money){
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, -1);
         Date minusMonth = calendar.getTime();
-        if(moneyAmount < money){
-            System.out.println("Недостаточно средств на счету для продолжения операции.");
-        }
-        else if(minusMonth.after(lastPaymentDay) && moneyAmount >= money) {
-            moneyAmount -= money;
+        if(minusMonth.after(lastPaymentDay) && moneyAmount >= money) {
+            super.withdrawMoney(money);
         }
         else{
             System.out.println("Деньги на счёт были внесены менее месяца назад.");
         }
     }
 
-    private Date dateFormat(String str){
+    protected Date dateFormat(String str){
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
         Date date = null;
         try {
@@ -50,7 +45,7 @@ public class DepositAccount extends PaymentAccount {
     }
 
     @Override
-    public int getMoneyAmount() {
+    public double getMoneyAmount() {
         return moneyAmount;
     }
 }

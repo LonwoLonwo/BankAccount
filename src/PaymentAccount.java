@@ -1,25 +1,25 @@
 public class PaymentAccount {
-    private int moneyAmount;
+    protected double moneyAmount;
 
-    PaymentAccount(int money){
+    PaymentAccount(double money){
         moneyAmount = money;
     }
 
-    public int getMoneyAmount() {
+    public double getMoneyAmount() {
         return moneyAmount;
     }
 
-    public void putMoney(int money){
+    public void putMoney(double money){
+        moneyAmount += money;
+    }
+
+    public void withdrawMoney(double money){
         if(moneyAmount < money){
             System.out.println("Недостаточно средств на счету для продолжения операции.");
         }
         else {
-            moneyAmount += money;
+            moneyAmount -= money;
         }
-    }
-
-    public void withdrawMoney(int money){
-        moneyAmount -= money;
     }
 
 
