@@ -14,11 +14,11 @@ public class CardAccount extends PaymentAccount{
 
     @Override
     public void withdrawMoney(double money) {
-        if(moneyAmount < (money + moneyAmount*0.01)){
+        if(money > (money*0.01 + moneyAmount)){
             System.out.println("Недостаточно средств на счету для продолжения операции.");
         }
         else {
-            moneyAmount = moneyAmount - money - Math.round(moneyAmount * 0.01);
+            moneyAmount = moneyAmount - money - money * 0.01;
         }
     }
 }

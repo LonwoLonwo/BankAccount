@@ -18,12 +18,6 @@ public class BankAccountTest
         dAccount = new DepositAccount(200, "20.12.2019");
         cAccount = new CardAccount(1000);
     }
-    @After
-    public void ruin(){
-        pAccount = null;
-        dAccount = null;
-        cAccount = null;
-    }
     @Test
     public void putMoneyTest(){
         pAccount.putMoney(300.0);
@@ -61,6 +55,12 @@ public class BankAccountTest
     public void withdrawMoneyCardAccountTest(){
         cAccount.withdrawMoney(100);
         double expected = cAccount.moneyAmount;
-        Assert.assertEquals(expected, 890.0, 1e-8);
+        Assert.assertEquals(expected, 899.0, 1e-8);
+    }
+    @After
+    public void ruin(){
+        pAccount = null;
+        dAccount = null;
+        cAccount = null;
     }
 }
